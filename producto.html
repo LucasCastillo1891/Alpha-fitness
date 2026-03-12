@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Producto - Alpha Fitness</title>
+    <meta name="description" content="Ver detalles del producto. Suplementos fitness de alta calidad para potenciar tu rendimiento.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">Alpha Fitness</a>
+                
+                <nav class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="tienda.html" class="nav-link">Tienda</a>
+                    <a href="seguimiento.html" class="nav-link">Seguimiento de pedido</a>
+                    <a href="contacto.html" class="nav-link">Contacto</a>
+                </nav>
+                
+                <a href="carrito.html" class="cart-link">
+                    🛒 Carrito
+                    <span class="cart-count" id="cart-count">0</span>
+                </a>
+                
+                <button class="menu-toggle" id="menu-toggle">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="tienda.html">← Volver a la tienda</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section bg-gray-900">
+            <div class="container">
+                <div class="product-detail-container">
+                    <div class="product-gallery">
+                        <div class="gallery-main">
+                            <img id="product-image" src="" alt="">
+                        </div>
+                        <div class="gallery-thumbnails" id="gallery-thumbnails">
+                        </div>
+                            </div>
+                    </div>
+
+                    <div class="product-detail-info">
+                        <div class="product-category" id="product-category"></div>
+                        <h1 class="product-detail-name" id="product-name"></h1>
+                        <div class="product-detail-price" id="product-price"></div>
+                        <div class="product-detail-description" id="product-description"></div>
+                        
+                        <button class="btn-add-cart btn-large" id="add-to-cart-btn">
+                            🛒 Añadir al carrito
+                        </button>
+                        <div class="action-buttons">
+                            <button class="btn-buy-now btn-large" id="buy-now-btn">
+                                ⚡ Comprar ahora
+                            </button>
+                            <a href="#" target="_blank" class="btn-mercado-libre btn-large" id="mercado-libre-btn">
+                                🛍️ Ver en Mercado Libre
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="related-products" id="related-products">
+                    <h2 class="section-title">Productos Relacionados</h2>
+                    <div class="products-grid" id="related-grid">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">Alpha Fitness</div>
+                    <p>Tu tienda de suplementos fitness de confianza. Potencia tu rendimiento con los mejores productos del mercado.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="tienda.html">Tienda</a></li>
+                        <li><a href="seguimiento.html">Seguimiento de pedido</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://wa.me/59899123456" target="_blank">WhatsApp: 598 99 123 456</a></li>
+                        <li><a href="mailto:info@alphafitness.com.uy">Email: info@alphafitness.com.uy</a></li>
+                        <li>Horario: Lun-Vie 9:00-18:00</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Redes Sociales</h3>
+                    <div class="social-links">
+                        <a href="#" target="_blank">Facebook</a>
+                        <a href="#" target="_blank">Instagram</a>
+                        <a href="#" target="_blank">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Alpha Fitness. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/59899123456" target="_blank" class="whatsapp-float">
+        💬
+    </a>
+
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+        });
+
+        let currentProduct = null;
+        
+        function loadProduct() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
+            
+            if (!productId) {
+                window.location.href = 'tienda.html';
+                return;
+            }
+            
+            currentProduct = products.find(p => p.id === productId);
+            
+            if (!currentProduct) {
+                window.location.href = 'tienda.html';
+                return;
+            }
+            
+            loadProductImages();
+            
+            document.getElementById('product-category').textContent = currentProduct.categoria;
+            document.getElementById('product-name').textContent = currentProduct.nombre;
+            document.getElementById('product-description').innerHTML = currentProduct.descripcion;
+            document.getElementById('product-price').textContent = `$${currentProduct.precio}`;
+            
+            const addBtn = document.getElementById('add-to-cart-btn');
+            addBtn.onclick = () => {
+                cart.addItem(currentProduct);
+            };
+            
+            const buyNowBtn = document.getElementById('buy-now-btn');
+            buyNowBtn.onclick = () => {
+                cart.addItem(currentProduct);
+                window.location.href = 'checkout.html';
+            };
+            
+            const mercadoLibreBtn = document.getElementById('mercado-libre-btn');
+            if (currentProduct.mercadolibreUrl) {
+                mercadoLibreBtn.href = currentProduct.mercadolibreUrl;
+                mercadoLibreBtn.style.display = 'inline-block';
+            } else {
+                mercadoLibreBtn.style.display = 'none';
+            }
+            
+            loadRelatedProducts();
+        }
+        
+        function loadProductImages() {
+            const mainImage = document.getElementById('product-image');
+            const thumbnailsContainer = document.getElementById('gallery-thumbnails');
+            
+            const images = currentProduct.imagenes || [currentProduct.imagen];
+            
+            mainImage.src = images[0];
+            mainImage.alt = currentProduct.nombre;
+            
+            thumbnailsContainer.innerHTML = images.map((img, index) => `
+                <div class="thumbnail ${index === 0 ? 'active' : ''}" onclick="changeImage(${index})">
+                    <img src="${img}" alt="${currentProduct.nombre} - Imagen ${index + 1}">
+                </div>
+            `).join('');
+        }
+        
+        function changeImage(index) {
+            const images = currentProduct.imagenes || [currentProduct.imagen];
+            const mainImage = document.getElementById('product-image');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            
+            mainImage.src = images[index];
+            
+            thumbnails.forEach((thumb, i) => {
+                thumb.classList.toggle('active', i === index);
+            });
+        }
+        
+        function loadRelatedProducts() {
+            const relatedProducts = products
+                .filter(p => {
+                    if (p.id === currentProduct.id) return false;
+                    
+                    if (Array.isArray(currentProduct.categoria) && Array.isArray(p.categoria)) {
+                        return currentProduct.categoria.some(cat => p.categoria.includes(cat));
+                    } else if (Array.isArray(currentProduct.categoria)) {
+                        return currentProduct.categoria.includes(p.categoria);
+                    } else if (Array.isArray(p.categoria)) {
+                        return p.categoria.includes(currentProduct.categoria);
+                    } else {
+                        return p.categoria === currentProduct.categoria;
+                    }
+                })
+                .slice(0, 4);
+            
+            const grid = document.getElementById('related-grid');
+            
+            if (relatedProducts.length === 0) {
+                document.getElementById('related-products').style.display = 'none';
+                return;
+            }
+            
+            grid.innerHTML = relatedProducts.map(product => `
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="${product.imagen}" alt="${product.nombre}">
+                    </div>
+                    <div class="product-details">
+                        <div class="product-category">${product.categoria}</div>
+                        <a href="producto.html?id=${product.id}" class="product-name">${product.nombre}</a>
+                        <span class="product-price">$${product.precio}</span>
+                        <div class="product-description">${product.descripcion}</div>
+                        <div class="product-footer">
+                            <button class="btn-add-cart" onclick="cart.addItem(${JSON.stringify(product).replace(/"/g, '&quot;')})">
+                                🛒 Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        loadProduct();
+    </script>
+</body>
+</html>

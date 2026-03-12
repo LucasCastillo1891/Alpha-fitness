@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguimiento de Pedido - Alpha Fitness</title>
+    <meta name="description" content="Rastrea el estado de tu pedido de suplementos fitness. Seguimiento en tiempo real.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">Alpha Fitness</a>
+                
+                <nav class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="tienda.html" class="nav-link">Tienda</a>
+                    <a href="seguimiento.html" class="nav-link">Seguimiento de pedido</a>
+                    <a href="contacto.html" class="nav-link">Contacto</a>
+                </nav>
+                
+                <a href="carrito.html" class="cart-link">
+                    🛒 Carrito
+                    <span class="cart-count" id="cart-count">0</span>
+                </a>
+                
+                <button class="menu-toggle" id="menu-toggle">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">Seguimiento de Pedido</h1>
+            </div>
+        </section>
+
+        <section class="section bg-gray-900">
+            <div class="container">
+                <div class="tracking-form">
+                    <form id="tracking-form">
+                        <input 
+                            type="text" 
+                            id="order-number"
+                            placeholder="Ingresa el número de pedido"
+                            style="flex: 1; padding: 0.75rem 1rem; background-color: #374151; color: #ffffff; border: none; border-radius: 0.5rem; font-size: 1rem;"
+                        >
+                        <button type="submit" class="btn-primary">
+                            🔍 Buscar
+                        </button>
+                    </form>
+                </div>
+
+                <div id="tracking-result" style="display: none;">
+                    <div class="tracking-card">
+                        <div style="text-align: center; margin-bottom: 2rem;">
+                            <h2 style="color: #ffffff; font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem;">
+                                Pedido #<span id="display-order-number"></span>
+                            </h2>
+                            <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; color: #f97316;">
+                                <span style="font-size: 1.5rem;">📦</span>
+                                <span style="font-size: 1.125rem; font-weight: 600;">En preparación</span>
+                            </div>
+                            <p style="color: #d1d5db; margin-top: 0.5rem;">
+                                Tu pedido está siendo preparado. Te avisaremos por WhatsApp cuando sea despachado.
+                            </p>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div class="progress-line"></div>
+                            <div class="progress-fill"></div>
+                            <div class="progress-steps">
+                                <div class="progress-step completed">
+                                    <div class="progress-icon">📦</div>
+                                    <span class="progress-label">Recibido</span>
+                                </div>
+                                <div class="progress-step active">
+                                    <div class="progress-icon">⏰</div>
+                                    <span class="progress-label">En preparación</span>
+                                </div>
+                                <div class="progress-step pending">
+                                    <div class="progress-icon">🚚</div>
+                                    <span class="progress-label">Despachado</span>
+                                </div>
+                                <div class="progress-step pending">
+                                    <div class="progress-icon">✅</div>
+                                    <span class="progress-label">Entregado</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="background-color: #374151; border-radius: 0.5rem; padding: 1.5rem; text-align: center; margin-top: 2rem;">
+                            <p style="color: #d1d5db; margin-bottom: 0.5rem;">
+                                Para consultas sobre tu pedido contactanos por WhatsApp
+                            </p>
+                            <a 
+                                href="https://wa.me/59899123456" 
+                                target="_blank"
+                                style="color: #f97316; text-decoration: none; transition: color 0.3s;"
+                                onmouseover="this.style.color='#ea580c'"
+                                onmouseout="this.style.color='#f97316'"
+                            >
+                                WhatsApp: 598 99 123 456
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="no-results" style="text-align: center; color: #9ca3af;">
+                    <p style="font-size: 1.125rem; margin-bottom: 0.5rem;">
+                        Ingresa el número de tu pedido para ver el estado actual
+                    </p>
+                    <p style="font-size: 0.875rem;">
+                        Si no tenés tu número de pedido, contactanos por WhatsApp
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">Alpha Fitness</div>
+                    <p>Tu tienda de suplementos fitness de confianza. Potencia tu rendimiento con los mejores productos del mercado.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="tienda.html">Tienda</a></li>
+                        <li><a href="seguimiento.html">Seguimiento de pedido</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://wa.me/59899123456" target="_blank">WhatsApp: 598 99 123 456</a></li>
+                        <li><a href="mailto:info@alphafitness.com.uy">Email: info@alphafitness.com.uy</a></li>
+                        <li>Horario: Lun-Vie 9:00-18:00</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Redes Sociales</h3>
+                    <div class="social-links">
+                        <a href="#" target="_blank">Facebook</a>
+                        <a href="#" target="_blank">Instagram</a>
+                        <a href="#" target="_blank">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Alpha Fitness. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/59899123456" target="_blank" class="whatsapp-float">
+        💬
+    </a>
+
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+        });
+
+        document.getElementById('tracking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const orderNumber = document.getElementById('order-number').value.trim();
+            
+            if (!orderNumber) {
+                return;
+            }
+            
+            document.getElementById('display-order-number').textContent = orderNumber;
+            document.getElementById('tracking-result').style.display = 'block';
+            document.getElementById('no-results').style.display = 'none';
+            
+            document.getElementById('tracking-result').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

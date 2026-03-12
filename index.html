@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpha Fitness - Tienda de Suplementos Fitness</title>
+    <meta name="description" content="Tu tienda de suplementos fitness de confianza. Proteínas, BCAA, creatina y más. Potencia tu rendimiento con Alpha Fitness.">
+    <meta name="keywords" content="suplementos, fitness, proteína, creatina, BCAA, Black Skull, Uruguay, gimnasio, musculación">
+    <meta name="author" content="Alpha Fitness">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Alpha Fitness - Tienda de Suplementos Fitness">
+    <meta property="og:description" content="Tu tienda de suplementos fitness de confianza. Proteínas, BCAA, creatina y más.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alphafitness.com.uy">
+    <meta property="og:image" content="imagenes-suplementos/banner.png">
+    <meta property="og:locale" content="es_UY">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Alpha Fitness - Tienda de Suplementos Fitness">
+    <meta name="twitter:description" content="Tu tienda de suplementos fitness de confianza.">
+    <meta name="twitter:image" content="imagenes-suplementos/banner.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="imagenes-suplementos/banner.png">
+    <link rel="apple-touch-icon" href="imagenes-suplementos/banner.png">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://alphafitness.com.uy">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">Alpha Fitness</a>
+                
+                <nav class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="tienda.html" class="nav-link">Tienda</a>
+                    <a href="seguimiento.html" class="nav-link">Seguimiento de pedido</a>
+                    <a href="contacto.html" class="nav-link">Contacto</a>
+                </nav>
+                
+                <a href="carrito.html" class="cart-link">
+                    🛒 Carrito
+                    <span class="cart-count" id="cart-count">0</span>
+                </a>
+                
+                <button class="menu-toggle" id="menu-toggle">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" style="background-image: url('imagenes-suplementos/banner.png');">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span>Alpha Fitness</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Potencia tu rendimiento con los mejores suplementos fitness. Alcanza tu máximo potencial con nosotros.
+                </p>
+                <a href="tienda.html" class="btn-primary">
+                    Ver productos
+                </a>
+            </div>
+        </section>
+
+        <section class="section bg-gray-800">
+            <div class="container">
+                <h2 class="section-title">Productos Recomendados</h2>
+                
+                <div class="products-grid" id="featured-products">
+                    </div>
+                
+                <div style="text-align: center;">
+                    <a href="tienda.html" class="btn-primary">
+                        Ver todos los productos
+                        <span>→</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section bg-gray-800">
+            <div class="container">
+                <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+                
+                <div class="testimonials-container">
+                    <div class="testimonial-card">
+                        <img src="https://picsum.photos/seed/avatar1/100/100.jpg" alt="Cliente 1" class="testimonial-avatar">
+                        <h3 class="testimonial-name">Martín Rodríguez</h3>
+                        <div class="testimonial-rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <p class="testimonial-comment">
+                            "Excelente calidad en todos los productos. La proteína whey es de las mejores que he probado. ¡Totalmente recomendado!"
+                        </p>
+                    </div>
+                </div>
+                
+                <div style="position: relative; max-width: 32rem; margin: 2rem auto;">
+                    <button class="testimonial-nav testimonial-prev" onclick="changeTestimonial(-1)">‹</button>
+                    <button class="testimonial-nav testimonial-next" onclick="changeTestimonial(1)">›</button>
+                </div>
+                
+                <div class="carousel-dots" id="testimonial-dots" style="margin-top: 2rem;"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">Alpha Fitness</div>
+                    <p>Tu tienda de suplementos fitness de confianza. Potencia tu rendimiento con los mejores productos del mercado.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="tienda.html">Tienda</a></li>
+                        <li><a href="seguimiento.html">Seguimiento de pedido</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://wa.me/59899123456" target="_blank">WhatsApp: 598 99 123 456</a></li>
+                        <li><a href="mailto:info@alphafitness.com.uy">Email: info@alphafitness.com.uy</a></li>
+                        <li>Horario: Lun-Vie 9:00-18:00</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Redes Sociales</h3>
+                    <div class="social-links">
+                        <a href="#" target="_blank">Facebook</a>
+                        <a href="#" target="_blank">Instagram</a>
+                        <a href="#" target="_blank">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Alpha Fitness. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/59899123456" target="_blank" class="whatsapp-float">
+        💬
+    </a>
+
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+        });
+
+        const testimonials = [
+            {
+                name: "Martín Rodríguez",
+                avatar: "https://picsum.photos/seed/avatar1/100/100.jpg",
+                rating: 5,
+                comment: "Excelente calidad en todos los productos. La proteína whey es de las mejores que he probado. ¡Totalmente recomendado!"
+            },
+            {
+                name: "Sofía González",
+                avatar: "https://picsum.photos/seed/avatar2/100/100.jpg",
+                rating: 5,
+                comment: "El pre-entreno me dio la energía que necesitaba. Servicio impecable y envío súper rápido. Volveré a comprar seguro."
+            },
+            {
+                name: "Diego Pereira",
+                avatar: "https://picsum.photos/seed/avatar3/100/100.jpg",
+                rating: 4,
+                comment: "Muy buena atención y productos de calidad. El BCAA me ayudó mucho en la recuperación. El único detalle es que tardaron un día más en entregar."
+            },
+            {
+                name: "Lucía Martínez",
+                avatar: "https://picsum.photos/seed/avatar4/100/100.jpg",
+                rating: 5,
+                comment: "Como vegana, la proteína vegetal es perfecta. Sabor increíble y se disuelve muy bien. ¡Gracias Alpha Fitness!"
+            },
+            {
+                name: "Carlos Silva",
+                avatar: "https://picsum.photos/seed/avatar5/100/100.jpg",
+                rating: 5,
+                comment: "Llevo meses comprando aquí y nunca me han fallado. Creatina de pura calidad y precios competitivos. El mejor shop de fitness del país."
+            }
+        ];
+        
+        let currentTestimonial = 0;
+        
+        function updateTestimonial() {
+            const testimonial = testimonials[currentTestimonial];
+            const container = document.querySelector('.testimonials-container');
+            
+            container.innerHTML = `
+                <div class="testimonial-card">
+                    <img src="${testimonial.avatar}" alt="${testimonial.name}" class="testimonial-avatar">
+                    <h3 class="testimonial-name">${testimonial.name}</h3>
+                    <div class="testimonial-rating">
+                        ${Array(testimonial.rating).fill('★').map(star => `<span class="star">${star}</span>`).join('')}
+                    </div>
+                    <p class="testimonial-comment">"${testimonial.comment}"</p>
+                </div>
+            `;
+            
+            const dots = document.getElementById('testimonial-dots');
+            dots.innerHTML = '';
+            for (let i = 0; i < testimonials.length; i++) {
+                const dot = document.createElement('button');
+                dot.className = `carousel-dot ${i === currentTestimonial ? 'active' : ''}`;
+                dot.onclick = () => goToTestimonial(i);
+                dots.appendChild(dot);
+            }
+        }
+        
+        function changeTestimonial(direction) {
+            currentTestimonial = (currentTestimonial + direction + testimonials.length) % testimonials.length;
+            updateTestimonial();
+        }
+        
+        function goToTestimonial(index) {
+            currentTestimonial = index;
+            updateTestimonial();
+        }
+        
+        updateTestimonial();
+
+        function loadFeaturedProducts() {
+            const featuredProducts = products.filter(p => p.featured).slice(0, 4);
+            const container = document.getElementById('featured-products');
+            
+            container.innerHTML = featuredProducts.map(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                const productImage = product.imagenes ? product.imagenes[0] : product.imagen;
+                productCard.innerHTML = `
+                    <div class="product-image">
+                        <img src="${productImage}" alt="${product.nombre}">
+                    </div>
+                    <div class="product-details">
+                        <div class="product-category">${product.categoria}</div>
+                        <a href="producto.html?id=${product.id}" class="product-name">${product.nombre}</a>
+                        <p class="product-description">${product.descripcion}</p>
+                        <div class="product-footer">
+                            <span class="product-price">$${product.precio}</span>
+                            <button class="btn-add-cart" onclick="event.stopPropagation(); cart.addItem(${JSON.stringify(product).replace(/"/g, '&quot;')})">
+                                🛒 Agregar
+                            </button>
+                        </div>
+                    </div>
+                `;
+                productCard.querySelector('.product-description').innerHTML = product.descripcion;
+                
+                productCard.addEventListener('click', function(e) {
+                    if (!e.target.classList.contains('btn-add-cart')) {
+                        window.location.href = `producto.html?id=${product.id}`;
+                    }
+                });
+                
+                return productCard.outerHTML;
+            }).join('');
+        }
+        
+        loadFeaturedProducts();
+    </script>
+</body>
+</html>

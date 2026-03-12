@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Alpha Fitness</title>
+    <meta name="description" content="Completa tu pedido de suplementos fitness. Checkout seguro en Alpha Fitness.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">Alpha Fitness</a>
+                
+                <nav class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="tienda.html" class="nav-link">Tienda</a>
+                    <a href="seguimiento.html" class="nav-link">Seguimiento de pedido</a>
+                    <a href="contacto.html" class="nav-link">Contacto</a>
+                </nav>
+                
+                <a href="carrito.html" class="cart-link">
+                    🛒 Carrito
+                    <span class="cart-count" id="cart-count">0</span>
+                </a>
+                
+                <button class="menu-toggle" id="menu-toggle">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="carrito.html">← Volver al carrito</a>
+                </div>
+                <h1 class="page-title">Checkout</h1>
+            </div>
+        </section>
+
+        <section class="section bg-gray-900">
+            <div class="container">
+                <div class="checkout-container">
+                    <div class="checkout-form">
+                        <div class="form-section">
+                            <h2 class="form-section-title">Datos Personales</h2>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label">Nombre completo</label>
+                                    <input type="text" class="form-input" placeholder="Juan Pérez">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-input" placeholder="juan@ejemplo.com">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Teléfono</label>
+                                    <input type="tel" class="form-input" placeholder="099123456">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Código postal</label>
+                                    <input type="text" class="form-input" placeholder="11000">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h2 class="form-section-title">Dirección de Entrega</h2>
+                            <div class="form-group">
+                                <label class="form-label">Dirección</label>
+                                <input type="text" class="form-input" placeholder="Av. 19 de Abril 1234">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Ciudad / Departamento</label>
+                                <input type="text" class="form-input" placeholder="Montevideo">
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h2 class="form-section-title">Opción de Envío</h2>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="envio" value="retiro" class="radio-input" checked>
+                                    <span>Retiro en punto de entrega (gratis)</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="envio" value="domicilio" class="radio-input">
+                                    <span>Envío a domicilio (el costo se coordina por WhatsApp)</span>
+                                </label>
+                            </div>
+                            <p style="font-size: 0.875rem; color: #9ca3af; margin-top: 1rem;">
+                                El costo y coordinación del envío se confirmará por WhatsApp luego de realizar el pedido.
+                            </p>
+                        </div>
+
+                        <div class="form-section">
+                            <h2 class="form-section-title">Opciones de Pago</h2>
+                            <div style="margin-bottom: 1.5rem;">
+                                <button id="pay-btn" class="btn-primary" style="width: 100%; justify-content: center;">
+                                    Pagar online con tarjeta
+                                </button>
+                            </div>
+                            <div>
+                                <p style="color: #d1d5db; font-size: 0.875rem; margin-bottom: 0.75rem;">
+                                    O comprá directamente en MercadoLibre:
+                                </p>
+                                <div id="mercadolibre-buttons" style="display: grid; gap: 0.75rem;">
+                                    <!-- Los botones se cargarán dinámicamente -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="order-summary">
+                        <h2 class="text-xl font-bold text-white mb-6">Resumen del Pedido</h2>
+                        <div id="order-items" style="margin-bottom: 1.5rem;">
+                            <!-- Los items se cargarán dinámicamente -->
+                        </div>
+                        <div style="border-top: 1px solid #374151; padding-top: 1rem;">
+                            <div style="display: flex; justify-content: space-between; color: #ffffff; font-size: 1.25rem; font-weight: bold;">
+                                <span>Total</span>
+                                <span id="order-total">$0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">Alpha Fitness</div>
+                    <p>Tu tienda de suplementos fitness de confianza. Potencia tu rendimiento con los mejores productos del mercado.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="tienda.html">Tienda</a></li>
+                        <li><a href="seguimiento.html">Seguimiento de pedido</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://wa.me/59899123456" target="_blank">WhatsApp: 598 99 123 456</a></li>
+                        <li><a href="mailto:info@alphafitness.com.uy">Email: info@alphafitness.com.uy</a></li>
+                        <li>Horario: Lun-Vie 9:00-18:00</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Redes Sociales</h3>
+                    <div class="social-links">
+                        <a href="#" target="_blank">Facebook</a>
+                        <a href="#" target="_blank">Instagram</a>
+                        <a href="#" target="_blank">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Alpha Fitness. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/59899123456" target="_blank" class="whatsapp-float">
+        💬
+    </a>
+
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+        });
+
+        if (cart.items.length === 0) {
+            document.querySelector('.checkout-container').innerHTML = `
+                <div style="text-align: center; padding: 4rem 0;">
+                    <h2 style="color: #ffffff; margin-bottom: 1rem;">Tu carrito está vacío</h2>
+                    <a href="tienda.html" class="btn-primary">
+                        Ir a la tienda
+                        <span>→</span>
+                    </a>
+                </div>
+            `;
+        }
+
+        function loadOrderSummary() {
+            const orderItems = document.getElementById('order-items');
+            const orderTotal = document.getElementById('order-total');
+            
+            orderItems.innerHTML = cart.items.map(item => `
+                <div style="display: flex; justify-content: space-between; color: #d1d5db; font-size: 0.875rem; margin-bottom: 0.75rem;">
+                    <span>${item.quantity}x ${item.nombre}</span>
+                    <span>$${item.precio * item.quantity}</span>
+                </div>
+            `).join('');
+            
+            orderTotal.textContent = `$${cart.getTotal()}`;
+        }
+
+        function loadMercadoLibreButtons() {
+            const container = document.getElementById('mercadolibre-buttons');
+            
+            container.innerHTML = cart.items.map(item => `
+                <button 
+                    onclick="window.open('${item.mercadolibreUrl}', '_blank')"
+                    style="
+                        background-color: #eab308;
+                        color: #000000;
+                        border: none;
+                        padding: 0.75rem 1rem;
+                        border-radius: 0.5rem;
+                        font-weight: 500;
+                        cursor: pointer;
+                        transition: all 0.3s;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 0.5rem;
+                    "
+                    onmouseover="this.style.backgroundColor='#ca8a04'"
+                    onmouseout="this.style.backgroundColor='#eab308'"
+                >
+                    🛒 Comprar ${item.nombre} en MercadoLibre
+                </button>
+            `).join('');
+        }
+
+        // ─── PROCESAR PAGO ───
+        document.getElementById('pay-btn').addEventListener('click', function() {
+            // Abrir página de pago externa en nueva ventana
+            const paymentWindow = window.open('pago.html', 'payment', 'width=600,height=700,scrollbars=yes,resizable=yes');
+            
+            // Mostrar mensaje de espera
+            const btn = this;
+            btn.disabled = true;
+            btn.innerHTML = '⏳ Abriendo procesador de pago seguro...';
+            
+            // Poll para verificar si la ventana se cerró (usuario volvió del pago)
+            const checkClosed = setInterval(() => {
+                if (paymentWindow.closed) {
+                    clearInterval(checkClosed);
+                    btn.disabled = false;
+                    btn.innerHTML = 'Reintentar pago';
+                    btn.style.background = '';
+                    
+                    // Redirigir a checkout en la ventana principal
+                    window.location.href = 'checkout.html';
+                }
+            }, 1000);
+        });
+
+        // ─── INICIALIZAR ───
+        loadOrderSummary();
+        loadMercadoLibreButtons();
+    </script>
+</body>
+</html>

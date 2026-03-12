@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda - Alpha Fitness</title>
+    <meta name="description" content="Explora nuestra tienda de suplementos fitness. Proteínas, BCAA, creatina, pre-entreno y más. Productos Black Skull de alta calidad.">
+    <meta name="keywords" content="tienda suplementos, proteína, BCAA, creatina, pre-entreno, Black Skull, Uruguay">
+    <link rel="canonical" href="https://alphafitness.com.uy/tienda">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">Alpha Fitness</a>
+                
+                <nav class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="tienda.html" class="nav-link">Tienda</a>
+                    <a href="seguimiento.html" class="nav-link">Seguimiento de pedido</a>
+                    <a href="contacto.html" class="nav-link">Contacto</a>
+                </nav>
+                
+                <a href="carrito.html" class="cart-link">
+                    🛒 Carrito
+                    <span class="cart-count" id="cart-count">0</span>
+                </a>
+                
+                <button class="menu-toggle" id="menu-toggle">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">Nuestra Tienda</h1>
+            </div>
+        </section>
+
+        <section class="section bg-gray-900">
+            <div class="container">
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-bottom: 3rem;">
+                    <button class="filter-btn active" onclick="filterProducts('Todos')">Todos</button>
+                    <button class="filter-btn" onclick="filterProducts('Proteína')">Proteína</button>
+                    <button class="filter-btn" onclick="filterProducts('BCAA')">BCAA</button>
+                    <button class="filter-btn" onclick="filterProducts('Creatina')">Creatina</button>
+                    <button class="filter-btn" onclick="filterProducts('Pre-entreno')">Pre-entreno</button>
+                    <button class="filter-btn" onclick="filterProducts('Quemador')">Quemador</button>
+                    <button class="filter-btn" onclick="filterProducts('Accesorio')">Accesorio</button>
+                </div>
+
+                <div class="products-grid" id="products-grid">
+                </div>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <p class="text-gray-400" id="results-text">
+                        Mostrando <span id="product-count">0</span> productos
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">Alpha Fitness</div>
+                    <p>Tu tienda de suplementos fitness de confianza. Potencia tu rendimiento con los mejores productos del mercado.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="tienda.html">Tienda</a></li>
+                        <li><a href="seguimiento.html">Seguimiento de pedido</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://wa.me/59899123456" target="_blank">WhatsApp: 598 99 123 456</a></li>
+                        <li><a href="mailto:info@alphafitness.com.uy">Email: info@alphafitness.com.uy</a></li>
+                        <li>Horario: Lun-Vie 9:00-18:00</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Redes Sociales</h3>
+                    <div class="social-links">
+                        <a href="#" target="_blank">Facebook</a>
+                        <a href="#" target="_blank">Instagram</a>
+                        <a href="#" target="_blank">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Alpha Fitness. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/59899123456" target="_blank" class="whatsapp-float">
+        💬
+    </a>
+
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+        });
+
+        let currentCategory = 'Todos';
+        
+        function filterProducts(category) {
+            currentCategory = category;
+            
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            const filteredProducts = category === 'Todos' 
+                ? products 
+                : products.filter(p => {
+                    if (Array.isArray(p.categoria)) {
+                        return p.categoria.includes(category);
+                    } else {
+                        return p.categoria === category;
+                    }
+                });
+            
+            const grid = document.getElementById('products-grid');
+            
+            if (filteredProducts.length === 0) {
+                grid.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 0;">
+                        <p class="text-gray-400 text-lg">
+                            No se encontraron productos en la categoría "${category}"
+                        </p>
+                    </div>
+                `;
+            } else {
+                grid.innerHTML = '';
+                filteredProducts.forEach(product => {
+                    const productCard = document.createElement('div');
+                    productCard.className = 'product-card';
+                    // Usar la primera imagen del array si existe, sino la imagen principal
+                    const productImage = product.imagenes ? product.imagenes[0] : product.imagen;
+                    productCard.innerHTML = `
+                        <div class="product-image">
+                            <img src="${productImage}" alt="${product.nombre}">
+                        </div>
+                        <div class="product-details">
+                            <div class="product-category">${product.categoria}</div>
+                            <a href="producto.html?id=${product.id}" class="product-name">${product.nombre}</a>
+                            <span class="product-price">$${product.precio}</span>
+                            <div class="product-description">${product.descripcion}</div>
+                            <div class="product-footer">
+                                <button class="btn-add-cart" onclick="event.stopPropagation(); cart.addItem(${JSON.stringify(product).replace(/"/g, '&quot;')})">
+                                    🛒 Agregar
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    productCard.addEventListener('click', function(e) {
+                        if (!e.target.classList.contains('btn-add-cart')) {
+                            window.location.href = `producto.html?id=${product.id}`;
+                        }
+                    });
+                    
+                    grid.appendChild(productCard);
+                });
+            }
+            
+            // Actualizar contador
+            document.getElementById('product-count').textContent = filteredProducts.length;
+            
+            const resultsText = document.getElementById('results-text');
+            if (category !== 'Todos') {
+                resultsText.innerHTML = `Mostrando <span id="product-count">${filteredProducts.length}</span> productos en ${category}`;
+            } else {
+                resultsText.innerHTML = `Mostrando <span id="product-count">${filteredProducts.length}</span> productos`;
+            }
+        }
+        
+        function loadAllProducts() {
+            const grid = document.getElementById('products-grid');
+            grid.innerHTML = '';
+            
+            products.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                const productImage = product.imagenes ? product.imagenes[0] : product.imagen;
+                productCard.innerHTML = `
+                    <div class="product-image">
+                        <img src="${productImage}" alt="${product.nombre}">
+                    </div>
+                    <div class="product-details">
+                        <div class="product-category">${product.categoria}</div>
+                        <a href="producto.html?id=${product.id}" class="product-name">${product.nombre}</a>
+                        <span class="product-price">$${product.precio}</span>
+                        <div class="product-description">${product.descripcion}</div>
+                        <div class="product-footer">
+                            <button class="btn-add-cart" onclick="event.stopPropagation(); cart.addItem(${JSON.stringify(product).replace(/"/g, '&quot;')})">
+                                🛒 Agregar
+                            </button>
+                        </div>
+                    </div>
+                `;
+                
+                // Hacer que toda la tarjeta sea clicable
+                productCard.addEventListener('click', function(e) {
+                    // Evitar navegación si se hizo click en el botón de agregar al carrito
+                    if (!e.target.classList.contains('btn-add-cart')) {
+                        window.location.href = `producto.html?id=${product.id}`;
+                    }
+                });
+                
+                grid.appendChild(productCard);
+            });
+            
+            // Actualizar contador
+            document.getElementById('product-count').textContent = products.length;
+            document.getElementById('results-text').innerHTML = `Mostrando <span id="product-count">${products.length}</span> productos`;
+        }
+        
+        loadAllProducts();
+    </script>
+</body>
+</html>
