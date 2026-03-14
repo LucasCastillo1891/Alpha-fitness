@@ -961,6 +961,12 @@ body {
   transform: scale(1.1);
 }
 
+.whatsapp-icon {
+  width: 1.8rem;
+  height: 1.8rem;
+  object-fit: contain;
+}
+
 @keyframes pulse {
   0%, 100% {
     opacity: 1;
@@ -1032,12 +1038,12 @@ body {
   }
   
   .footer-content {
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr;
   }
   
   .footer-bottom {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
   }
 }
 
