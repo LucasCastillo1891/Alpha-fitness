@@ -165,9 +165,11 @@
                         <div class="product-details">
                             <div class="product-category">${product.categoria}</div>
                             <a href="producto.html?id=${product.id}" class="product-name">${product.nombre}</a>
-                            <span class="product-price">$${product.precio}</span>
                             <div class="product-description">${product.descripcion}</div>
-                            <div class="product-footer">
+                            <div class="product-price-section">
+                                <span class="product-price">$${product.precio}</span>
+                            </div>
+                            <div class="product-button-section">
                                 <button class="btn-add-cart" onclick="event.stopPropagation(); cart.addItem(${JSON.stringify(product).replace(/"/g, '&quot;')})">
                                     🛒 Agregar
                                 </button>

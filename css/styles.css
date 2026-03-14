@@ -361,6 +361,9 @@ body {
 
 .product-details {
   padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .product-category {
@@ -371,10 +374,11 @@ body {
 }
 
 .product-name {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #ffffff;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #e5e7eb;
   margin-bottom: 0.5rem;
+  min-height: 3rem; /* Asegura espacio consistente para 2 líneas de texto */
   text-decoration: none;
   display: block;
 }
@@ -392,12 +396,17 @@ body {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  min-height: 2.5rem; /* Asegura espacio consistente para 2 líneas de texto */
 }
 
-.product-footer {
+.product-price-section {
+  margin-bottom: 1rem;
+}
+
+.product-button-section {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  margin-top: auto;
 }
 
 .product-price {

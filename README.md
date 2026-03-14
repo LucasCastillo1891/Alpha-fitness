@@ -8,15 +8,11 @@
 
 > **Tienda e-commerce de suplementos fitness construida con vanilla JavaScript, featuring carrito funcional y pasarela de pagos integrada.**
 
-<<<<<<< HEAD
 - Carrito funcional con localStorage
 - Diseño responsive para todos los dispositivos
 - Botones de MercadoLibre individuales
 - Seguimiento de pedidos
 - Filtros de productos por categoría
-=======
-## 🚀 Demostración
->>>>>>> 839dcba (modificacion de README)
 
 **Live Demo:** [Alpha Fitness Live](https://alpha-fitness.netlify.app)  
 **Repositorio:** [GitHub Repository](https://github.com/LucasCastillo1891/Alpha-fitness)
@@ -105,33 +101,7 @@ alpha-fitness-html/
 - **Structured data** para productos
 - **URLs amigables** y navegación clara
 
-<<<<<<< HEAD
-### Promociones
-Edita directamente en `index.html`:
-- `// PROMO 1: editar título, descripción e imagen aquí`
-- `// PROMO 2: editar título, descripción e imagen aquí`
-- etc.
-
 ## 🎨 Diseño
-=======
-### 🛡️ **Seguridad Web**
-- **Headers de seguridad** configurados (XSS protection, frame options)
-- **Validación de datos** en formularios
-- **Protección CSRF** implementada
-- **Encriptación** de información sensible
-
-## 🌐 Despliegue en Producción
-
-### Netlify (Recomendado)
-1. **Conectar repositorio** a Netlify
-2. **Configurar despliegue automático** en cada push
-3. **Publicar** con URL personalizada (opcional)
-
-### Optimización de Rendimiento
-- **Cache headers** configurados para assets estáticos
-- **Imágenes optimizadas** para carga rápida
-- **CSS y JavaScript** optimizados
->>>>>>> 839dcba (modificacion de README)
 
 ## 📊 Performance y Métricas
 
@@ -153,12 +123,8 @@ Edita directamente en `index.html`:
 - **Sitemap.xml** generado automáticamente
 - **Robots.txt** configurado
 
-<<<<<<< HEAD
 - **MercadoLibre**: Botones individuales por producto
 - **Formulario completo**: Todos los campos necesarios
-=======
-## 🎯 Arquitectura y Buenas Prácticas
->>>>>>> 839dcba (modificacion de README)
 
 ### 🏗️ **Arquitectura de Software**
 - **Patrón MVC** para separación de responsabilidades
@@ -179,22 +145,7 @@ Edita directamente en `index.html`:
 - **X-XSS-Protection**: 1; mode=block
 - **X-Content-Type-Options**: nosniff
 
-<<<<<<< HEAD
 ## 🚀 Despliegue
-=======
-### **Validaciones**
-- **Input sanitization** en formularios
-- **CSRF protection** con tokens
-- **Data validation** en cliente y servidor
-
-## 📈 Métricas de Éxito
-
-### **Performance Metrics**
-- **Page Load**: < 2s (desktop)
-- **Mobile Load**: < 3s (3G)
-- **Lighthouse Score**: 95+
-- **GTmetrix**: A Grade
->>>>>>> 839dcba (modificacion de README)
 
 ### **SEO Metrics**
 - **Google PageSpeed**: 90+
@@ -211,25 +162,11 @@ Edita directamente en `index.html`:
 4. **Push**: `git push origin feature/amazing-feature`
 5. **Pull Request** para revisión
 
-### **Buenas Prácticas**
-- **Código limpio** y documentado
-- **Commits semánticos**
-- **Testing** en múltiples navegadores
-- **Performance** optimization constante
-
-## 📝 Licencia
-
-Este proyecto está bajo la **MIT License** - puedes ver el archivo [LICENSE](LICENSE) para más detalles.
-
 ## 👨‍💻 Autor
 
 **Lucas Castillo**  
 *Full Stack Developer*  
 - 📧 Email: lucas16castillo@gmail.com
-- 🌐 Portfolio: [lucascastillo.dev](https://lucascastillo.dev)
-- 💼 LinkedIn: [linkedin.com/in/lucascastillo](https://linkedin.com/in/lucascastillo)
-
---
 
 ## 🎉 Gracias por visitar Alpha Fitness!
 
